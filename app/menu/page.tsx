@@ -18,7 +18,7 @@ export default function Menu() {
     const style = { height: 'full', backgroundImage, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }
     
   return (
-    <section className="flex flex-col gap-4 max-w-3xl mx-auto text-center">
+    <section className="flex flex-col gap-4 max-[360px] mx-auto text-center">
       <Image src={'/about1.svg'} width={550} height={300} alt=""/>
       <div className="px-18">
         <h2 className="text-3xl font-bold mb-6">Welcome To Our Menu</h2>
@@ -28,7 +28,7 @@ export default function Menu() {
         </div>
       </div>
 
-      <div className="mt-12 px-4">
+      <div className="mt-12 px-[7%]">
             <h3 className="text-2xl text-left font-bold mb-10">MacLab Series</h3>
             <div className="grid grid-cols-3 gap-6 mb-10">
                 {[
@@ -60,7 +60,7 @@ export default function Menu() {
 
       <div style={style} className="mb-6 py-6 shadow-lg">
         <h3 className="text-3xl mb-20 text-left pl-8 font-bold">MacLab Bundle</h3>
-        <div className="grid grid-cols-3 gap-6 mb-4 px-8">
+        <div className="grid grid-cols-3 gap-6 mb-4 px-[10%]">
             {[
             { name: "Mac Lab basic", price: "22.000", description: "1 Porsi MacLab (All Variants) + 1 Topping Pilihan + Es Teh.", img: "/menus/17.svg" },
             { name: "Mac Lab couple", price: "30.000", description: "2 Porsi MacLab (All Variants) + 1 Topping Pilihan + Es Teh", img: "/menus/18.svg" },

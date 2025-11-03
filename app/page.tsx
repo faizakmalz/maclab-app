@@ -22,13 +22,13 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen items-center bg-white justify-center font-sans">
-      <main className="flex min-h-screen max-w-[500px] w-full flex-col items-center justify-between bg-white sm:items-start">
+      <main className="flex min-h-screen max-w-[375px] w-full flex-col items-center justify-between bg-white sm:items-start">
         <section className="text-center">
           <div className="w-full">
             <Image src={'/banner.svg'} alt="banner" width={500} height={500}/>
           </div>
 
-          <div className="max-w-[500px] mt-12">
+          <div className="max-w-[375px] mt-12">
             <div className="flex px-10">
               <div className=" flex-1 gap-3 flex flex-col items-start justify-center">
                 <h3 className="text-2xl text-left font-bold">Meet MacLab</h3>
@@ -45,7 +45,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div style={style} className="max-w-[500px] mt-6 py-12 px-8">
+          <div style={style} className="max-w-[375px] mt-6 py-12 px-8">
             <h3 className="text-2xl mb-12 text-left pl-2 font-bold">MacLab Menu</h3>
             <div className="flex gap-4 justify-center">
               <div className="flex flex-col items-center w-[200px] rounded-xl shadow-lg overflow-hidden bg-white">
