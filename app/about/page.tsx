@@ -19,9 +19,9 @@ export default function About() {
     const style = { height: 'full', backgroundImage, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }
     
   return (
-    <section className="max-w-[360px] mx-auto text-center">
+    <section className="w-full md:w-[360px] mx-auto text-center">
       <Image src={'/about1.svg'} width={500} height={300} alt=""/>
-      <div className=" mt-8 flex flex-col gap-12">
+      <div className=" mt-8 flex flex-col gap-8">
         <div>
             <h2 className="text-3xl font-bold mb-4">Our Story</h2>
             <p className="px-[12%] mb-6">
@@ -40,19 +40,19 @@ export default function About() {
             </p>
         </div>
 
-        <div className="text-left my-16 w-[375px] -translate-y-20 flex justify-between">
+        <div className="text-left my-16 w-full md:w-[360px] -translate-y-5 flex justify-between">
             <div className="pl-6 relative z-10">
                 <h3 className="text-3xl font-bold mb-4">Our Vision</h3>
                 <p className="w-36 mb-6">
                     Menjadi brand camilan lokal yang dikenal karena rasa premium, harga terjangkau, dan konsep yang relevan dengan gaya hidup anak muda Indonesia.
                 </p>
             </div>
-            <Image className="absolute -translate-y-10" src={"/about3.svg"} width={350} height={150} alt="about3"/>  
+            <Image className="absolute translate-x-10 -translate-y-10" src={"/about3.svg"} width={350} height={150} alt="about3"/>  
 
         </div>
       </div>
 
-      <div style={style} className="py-12 px-6 max-w-[375px]">
+      <div style={style} className="py-12 px-6 w-full md:w-[360px]">
         <h3 className="text-2xl mb-4 text-center font-bold">Where To Find Us</h3>
         <div className="flex flex-col gap-8 px-10 justify-center">
             <div>

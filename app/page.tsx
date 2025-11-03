@@ -16,19 +16,19 @@ function getBackgroundImage(srcSet = '') {
 export default function Home() {
   const {
     props: { srcSet },
-  } = getImageProps({ alt: '', width: 500, height: 500, src: '/webdes4.png' })
+  } = getImageProps({ alt: '', width: 400, height: 400, src: '/webdes4.png' })
   const backgroundImage = getBackgroundImage(srcSet)
   const style = { height: 'full', backgroundImage, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }
 
   return (
     <div className="flex min-h-screen items-center bg-white justify-center font-sans">
-      <main className="flex min-h-screen max-w-[375px] w-full flex-col items-center justify-between bg-white sm:items-start">
+      <main className="flex min-h-screen w-full md:w-[360px] flex-col items-center justify-between bg-white sm:items-start">
         <section className="text-center">
           <div className="w-full">
-            <Image src={'/banner.svg'} alt="banner" width={500} height={500}/>
+            <Image src={'/banner.svg'} alt="banner" width={400} height={500}/>
           </div>
 
-          <div className="max-w-[375px] mt-12">
+          <div className="w-full md:w-[360px] mt-12">
             <div className="flex px-10">
               <div className=" flex-1 gap-3 flex flex-col items-start justify-center">
                 <h3 className="text-2xl text-left font-bold">Meet MacLab</h3>
@@ -45,18 +45,18 @@ export default function Home() {
             </div>
           </div>
 
-          <div style={style} className="max-w-[375px] mt-6 py-12 px-8">
+          <div style={style} className="w-full md:w-[360px] mt-6 py-12 px-8">
             <h3 className="text-2xl mb-12 text-left pl-2 font-bold">MacLab Menu</h3>
             <div className="flex gap-4 justify-center">
-              <div className="flex flex-col items-center w-[200px] rounded-xl shadow-lg overflow-hidden bg-white">
+              <div className="flex flex-col items-center w-[30%] rounded-xl shadow-lg overflow-hidden bg-white">
                 <img
                     src="/menus/14.svg"
                     alt="Garlic Bomba Lime"
-                    className="w-[150px] absolute h-[150px] object-cover -translate-y-8"
+                    className="w-[120px] absolute h-[150px] object-cover -translate-y-8"
                   />
-                <div className="bg-[#F6B70D] w-full h-32 flex justify-center">
+                <div className="bg-[#F6B70D] w-full h-30 flex justify-center">
                 </div>
-                <div className="w-full bg-white text-center py-2 px-2 rounded-t-2xl -mt-6">
+                <div className="w-full h-30 flex flex-col justify-between bg-white text-center py-2 px-2 rounded-t-2xl -mt-6">
                   <p className="text-[18px] text-black uppercase font-bebas-sans leading-4 mt-2">
                     Garlic Bomba Lime
                   </p>
@@ -67,15 +67,15 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex flex-col items-center w-[250px] rounded-xl shadow-lg overflow-hidden bg-white">
+              <div className="flex flex-col items-center w-[30%] rounded-xl shadow-lg overflow-hidden bg-white">
                 <img
                     src="/menus/15.svg"
                     alt="Garlic Bomba Lime"
-                    className="w-[150px] absolute h-[150px] object-cover -translate-y-8"
+                    className="w-[120px] absolute h-[150px] object-cover -translate-y-8"
                   />
-                <div className="bg-[#F6B70D] w-full h-32 flex justify-center">
+                <div className="bg-[#F6B70D] w-full h-30 flex justify-center">
                 </div>
-                <div className="w-full bg-white text-center py-2 px-2 rounded-t-2xl -mt-6">
+                <div className="w-full h-30 flex flex-col justify-between bg-white text-center py-2 px-2 rounded-t-2xl -mt-6">
                   <p className="text-[18px] text-black uppercase font-bebas-sans leading-4 mt-2">
                     la felicita carbonara
                   </p>
@@ -86,15 +86,15 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex flex-col items-center w-[200px] rounded-xl shadow-lg overflow-hidden bg-white">
+              <div className="flex flex-col items-center w-[30%] rounded-xl shadow-lg overflow-hidden bg-white">
                 <img
                     src="/menus/16.svg"
                     alt="Garlic Bomba Lime"
-                    className="w-[150px] absolute h-[150px] object-cover -translate-y-8"
+                    className="w-[120px] absolute h-[150px] object-cover -translate-y-8"
                   />
-                <div className="bg-[#F6B70D] w-full h-32 flex justify-center">
+                <div className="bg-[#F6B70D] w-full h-30 flex justify-center">
                 </div>
-                <div className="w-full bg-white text-center py-2 px-2 rounded-t-2xl -mt-6">
+                <div className="w-full h-30 flex flex-col justify-between bg-white text-center py-2 px-2 rounded-t-2xl -mt-6">
                   <p className="text-[18px] text-black uppercase font-bebas-sans leading-4 mt-2">
                     Spicy Boom
                   </p>

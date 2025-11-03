@@ -47,8 +47,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header/>
-          <main className="min-h-screen w-[360px] overflow-x-hidden">{children}</main>
-          <footer className="text-center py-4 text-sm bg-[#A82731] w-[360px]">
+          <main className="min-h-screen w-full md:w-[360px] overflow-x-hidden">{children}</main>
+          <footer className="text-center py-4 text-sm bg-[#A82731] w-full md:w-[360px]">
             <div className="flex gap-6 px-8 items-center justify-around">
               <div>
                 <Image src={'/logo.svg'} width={60} height={60} alt="logo"/>
