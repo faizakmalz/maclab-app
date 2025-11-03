@@ -9,7 +9,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="flex w-[375px] justify-between items-center px-[6%] overflow-hidden  py-4 bg-white shadow-md relative z-50">
+    <header className="flex w-[360px] justify-between items-center px-[6%] overflow-hidden  py-4 bg-white shadow-md relative z-50">
       <div className="font-bold text-xl flex items-center gap-2">
         🍜 MacLab
       </div>
