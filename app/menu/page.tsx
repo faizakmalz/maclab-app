@@ -86,12 +86,12 @@ export default function Menu() {
         </div>
     </div>
     
-    <div className="bg-[#FFD972] flex flex-col gap-4 px-8 py-6 w-full shadow-md">
+    <div className="bg-[#FFD972] flex flex-col gap-4 px-7 py-6 w-full shadow-md">
         <h2 className="font-bold text-3xl text-left">Add On</h2>
-        <div className="pl-2 flex gap-8">
+        <div className="flex gap-5">
             <div className="flex flex-col gap-3">
                 <h3 className="text-3xl font-bold text-left">Topping</h3>
-                <ul>
+                <ul className="text-[12px]">
                     {
                         [
                         { topping: "  Smoked Beef", price: "3k", },
@@ -99,9 +99,9 @@ export default function Menu() {
                         { topping: "  Extra Cheese", price: "3k", },
                         { topping: "  Remahan Nori", price: "2k", }
                         ].map((item, i) => (
-                            <div key={i} className="flex w-42 justify-between leading-2">
+                            <div key={i} className="flex w-32 justify-between leading-1">
                                 <li>󠁯•󠁏󠁏   {item.topping}</li>
-                                <Link href={'https://wa.me/6281252074898'} className="bg-red-700 hover:bg-red-900 rounded-md text-white p-2">{item.price}</Link>
+                                <Link href={'https://wa.me/6281252074898'} className="bg-red-700 hover:bg-red-900 rounded-md text-white p-2 -translate-y-2 ">{item.price}</Link>
                             </div>
                         ))
                     }
@@ -109,16 +109,16 @@ export default function Menu() {
             </div>
             <div className="flex flex-col gap-3">
                 <h3 className="text-3xl font-bold text-left">Sauce</h3>
-                <ul>
+                <ul className="text-[12px]">
                     {
                         [
                         { topping: "Bolognese Sauce", price: "3k", },
                         { topping: "Cheese Sauce", price: "2k", },
-                        { topping: "Carbonara Sauce Cheese", price: "3k", },
+                        { topping: "Carbonara Sauce", price: "3k", },
                         { topping: "Garlic Butter Sauce", price: "2k", },
                         { topping: "Spicy + Savory Powder", price: "2k", }
                         ].map((item, i) => (
-                            <div key={i} className="flex w-60 justify-between leading-2">
+                            <div key={i} className="flex w-42 text-left justify-between leading-1">
                                 <li>󠁯•󠁏󠁏 {item.topping}</li>
                                 <Link href={"https://wa.me/6281252074898"} className="bg-red-700 hover:bg-red-900 rounded-md text-white p-2">{item.price}</Link>
                             </div>
