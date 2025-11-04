@@ -49,7 +49,7 @@ export default function Menu() {
                             {item.name}
                         </p>
                         <p className="text-[12px] leading-3 text-gray-800">Garlic Butter <br/> Sauce x Lime</p>
-                        <Link href={"https://wa.me/6281252074898"} className="bg-[#A82731] hover:bg-red-900 text-white font-semibold text-[13px] rounded-md inline-block mt-3 px-4 py-1 shadow">
+                        <Link href={"https://docs.google.com/forms/d/1M_71hWWL_pbyA5OoA5CS7-QUHN54raCPTC9o4jytlu4/edit"} className="bg-[#A82731] hover:bg-red-900 text-white font-semibold text-[13px] rounded-md inline-block mt-3 px-4 py-1 shadow">
                             {item.price}
                         </Link>
                     </div>
@@ -79,7 +79,7 @@ export default function Menu() {
                         {item.name}
                     </p>
                     <p className="text-[12px] leading-3 text-gray-800">{item.description}</p>
-                    <Link href={"https://wa.me/6281252074898"} className="cursor-pointer bg-[#A82731] hover:bg-red-900 text-white font-semibold text-[13px] rounded-md inline-block mt-3 px-3 py-1 shadow">{item.price}</Link>
+                    <Link href={"https://docs.google.com/forms/d/1M_71hWWL_pbyA5OoA5CS7-QUHN54raCPTC9o4jytlu4/edit"} className="cursor-pointer bg-[#A82731] hover:bg-red-900 text-white font-semibold text-[13px] rounded-md inline-block mt-3 px-3 py-1 shadow">{item.price}</Link>
                 </div>
             </div>
             ))}
