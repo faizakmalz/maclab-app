@@ -53,8 +53,8 @@ export default function RootLayout({
               <div>
                 <Image src={'/logo.svg'} width={60} height={60} alt="logo"/>
               </div>
-              <div className="flex gap-6 items-end text-white">
-                <div>
+              <div className="flex gap-6 items-start text-white text-left text-[12px]">
+                <div className="w-32 flex flex-col gap-1 items-start justify-start">
                   <div className="flex gap-2">
                     <Image src={'/icons/wa.svg'} width={15} height={15} alt="wa"/>
                     <a href="https://wa.me/6281252074898">+62 812 5207 4898</a>
@@ -68,7 +68,7 @@ export default function RootLayout({
                     <a href="https://www.tiktok.com/@maclab.id">@maclab.id</a>
                   </div>
                 </div>
-                <div className="flex flex-col items-start">
+                <div className="flex flex-col justify-start text-left items-start text-[12px]">
                   <a href="">Privacy Policy</a>
                   <a href="">Menu</a>
                   <a href="">About Us</a>

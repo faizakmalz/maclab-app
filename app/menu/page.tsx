@@ -101,7 +101,7 @@ export default function Menu() {
                         ].map((item, i) => (
                             <div key={i} className="flex w-30 justify-between leading-1">
                                 <li>󠁯•󠁏󠁏   {item.topping}</li>
-                                <Link href={'https://wa.me/6281252074898'} className="bg-red-700 hover:bg-red-900 rounded-md text-white p-2 -translate-y-2 ">{item.price}</Link>
+                                <Link href={'https://docs.google.com/forms/d/1M_71hWWL_pbyA5OoA5CS7-QUHN54raCPTC9o4jytlu4/edit'} className="bg-red-700 hover:bg-red-900 rounded-md text-white p-2 -translate-y-2 ">{item.price}</Link>
                             </div>
                         ))
                     }
@@ -120,7 +120,7 @@ export default function Menu() {
                         ].map((item, i) => (
                             <div key={i} className="flex w-42 text-left justify-between leading-1">
                                 <li>󠁯•󠁏󠁏 {item.topping}</li>
-                                <Link href={"https://wa.me/6281252074898"} className="bg-red-700 hover:bg-red-900 rounded-md text-white p-2 -translate-y-2">{item.price}</Link>
+                                <Link href={"https://docs.google.com/forms/d/1M_71hWWL_pbyA5OoA5CS7-QUHN54raCPTC9o4jytlu4/edit"} className="bg-red-700 hover:bg-red-900 rounded-md text-white p-2 -translate-y-2">{item.price}</Link>
                             </div>
                         ))
                     }
