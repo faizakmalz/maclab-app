@@ -24,19 +24,21 @@ export default function Menu() {
         <h2 className="text-3xl font-bold mb-6">Welcome To Our Menu</h2>
         <p>setiap rasa dirancang buat nyambung sama mood kamu, dari creamy yang comforting sampai pedas yang bikin semangat. Pilih menu favoritmu dan rasakan pengalaman ngemil yang beda dari yang lain</p>
         <div className="w-full flex items-center justify-center mt-6">
-              <Link href={"/menu"} className="cursor-pointer bg-[#A82731] hover:bg-red-900 text-white shadow-md rounded-lg px-8 py-2">Learn More</Link>
+              <Link href={"https://docs.google.com/forms/d/1M_71hWWL_pbyA5OoA5CS7-QUHN54raCPTC9o4jytlu4/edit"} className="cursor-pointer bg-[#A82731] hover:bg-red-900 text-white shadow-md rounded-lg px-8 py-2">Order Now</Link>
         </div>
       </div>
 
-      <div className="mt-12 px-[7%]">
+      <div className="mt-12 px-[5%]">
             <h3 className="text-2xl text-left font-bold mb-10">MacLab Series</h3>
-            <div className="grid grid-cols-3 gap-6 mb-10">
+            <div className="grid grid-cols-3 gap-3">
                 {[
-                { name: "Garlic Bomba Lime", link: "https://wa.me/6281252074898", price: "15.000", img: "/menus/14.svg" },
-                { name: "Spicy Boom", price: "15.000", link: "https://wa.me/6281252074898", img: "/menus/15.svg" },
-                { name: "Tobiko Cheese Bomb", price: "17.000", link: "https://wa.me/6281252074898", img: "/menus/16.svg" }
+                { name: "Bolognese Luv", link: "https://wa.me/6281252074898", price: "18.000", img: "/menus/21.svg" },
+                { name: "Garlic Bomba Lime", link: "https://wa.me/6281252074898", price: "15.000", img: "/menus/15.svg" },
+                { name: "La Felicita Carbonara", link: "https://wa.me/6281252074898", price: "20.000", img: "/menus/16.svg" },
+                { name: "Spicy Boom", price: "15.000", link: "https://wa.me/6281252074898", img: "/menus/14.svg" },
+                { name: "Tricky Cheese Bomb", price: "17.000", link: "https://wa.me/6281252074898", img: "/menus/22.svg" }
                 ].map((item, i) => (
-                <div key={i} className="flex flex-col items-center rounded-xl shadow-lg overflow-hidden bg-white">
+                <div key={i} className="flex flex-col items-center rounded-xl shadow-lg overflow-hidden bg-white mb-8">
                     <img
                         src={item.img}
                         alt="Garlic Bomba Lime"
@@ -60,7 +62,7 @@ export default function Menu() {
 
       <div style={style} className="mb-6 py-6 shadow-lg">
         <h3 className="text-3xl mb-20 text-left pl-8 font-bold">MacLab Bundle</h3>
-        <div className="grid grid-cols-3 gap-6 mb-4 px-[8%]">
+        <div className="grid grid-cols-3 gap-3 mb-4 px-[4%]">
             {[
             { name: "Mac Lab basic", price: "22.000", description: "1 Porsi MacLab (All Variants) + 1 Topping Pilihan + Es Teh.", img: "/menus/17.svg" },
             { name: "Mac Lab couple", price: "30.000", description: "2 Porsi MacLab (All Variants) + 1 Topping Pilihan + Es Teh", img: "/menus/18.svg" },
@@ -70,11 +72,11 @@ export default function Menu() {
                 <img
                     src={item.img}
                     alt="Garlic Bomba Lime"
-                    className="w-[120px] absolute h-[300px] object-cover -translate-y-14"
+                    className="w-[120px] absolute h-[240px] object-cover -translate-y-14"
                 />
-                <div className="bg-[#F6B70D] w-full h-30 flex justify-center">
+                <div className="bg-[#F6B70D] w-full h-24 flex justify-center">
                 </div>
-                <div className="w-full z-10 h-45 flex flex-col justify-between bg-white text-center py-2 px-2 rounded-t-2xl -mt-6">
+                <div className="w-full z-10 h-40 flex flex-col justify-between bg-white text-center py-2 px-2 rounded-t-2xl -mt-6">
                     <p className="text-[18px] text-black uppercase font-bebas-sans leading-4 mt-2 mb-2">
                         {item.name}
                     </p>

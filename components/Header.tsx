@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <header className="flex w-full md:w-[360px] justify-between items-center px-[6%] overflow-hidden  py-4 bg-white shadow-md relative z-50">
       <div className="font-bold text-xl flex items-center gap-2">
-        🍜 MacLab
+        <Image width={60} height={60} src={'/logo1.svg'} alt='logo'/>
       </div>
 
       <button
@@ -38,7 +38,7 @@ export default function Header() {
           <Link href="/" onClick={() => setOpen(false)} className="hover:text-red-700">Home</Link>
           <Link href="/about" onClick={() => setOpen(false)} className="hover:text-red-700">About Us</Link>
           <Link href="/menu" onClick={() => setOpen(false)} className="hover:text-red-700">Menu</Link>
-          <Link href="https://docs.google.com/forms/d/1M_71hWWL_pbyA5OoA5CS7-QUHN54raCPTC9o4jytlu4/edi" onClick={() => setOpen(false)} className="text-red-900 font-semibold hover:font-bold hover:text-red-700">Order</Link>
+          <Link href="https://docs.google.com/forms/d/1M_71hWWL_pbyA5OoA5CS7-QUHN54raCPTC9o4jytlu4/edit" onClick={() => setOpen(false)} className="text-red-900 font-semibold hover:font-bold hover:text-red-700">Order</Link>
         </div>
       </aside>
     </header>
