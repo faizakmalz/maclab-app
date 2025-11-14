@@ -12,30 +12,6 @@ const HERO_SLIDES = [
     src: "banner2.svg", // e.g. "Your Mac. Your Mood. Your Taste."
     alt: "Your Mac. Your Mood. Your Taste poster",
   },
-  {
-    src: "/banner.svg", // e.g. "New Arrival / Garlic Bomba Lime"
-    alt: "New Arrival Garlic Bomba Lime poster",
-  },
-  {
-    src: "banner2.svg", // e.g. "Your Mac. Your Mood. Your Taste."
-    alt: "Your Mac. Your Mood. Your Taste poster",
-  },
-  {
-    src: "/banner.svg", // e.g. "New Arrival / Garlic Bomba Lime"
-    alt: "New Arrival Garlic Bomba Lime poster",
-  },
-  {
-    src: "banner2.svg", // e.g. "Your Mac. Your Mood. Your Taste."
-    alt: "Your Mac. Your Mood. Your Taste poster",
-  },
-  {
-    src: "/banner.svg", // e.g. "New Arrival / Garlic Bomba Lime"
-    alt: "New Arrival Garlic Bomba Lime poster",
-  },
-  {
-    src: "banner2.svg", // e.g. "Your Mac. Your Mood. Your Taste."
-    alt: "Your Mac. Your Mood. Your Taste poster",
-  },
 ];
 
 function getBackgroundImage(srcSet = '') {
@@ -122,18 +98,6 @@ export default function Home() {
             ›
           </button>
 
-          <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2">
-            {HERO_SLIDES.map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                onClick={() => goToSlide(index)}
-                className={`h-2 w-2 rounded-full ${
-                  index === currentSlide ? "bg-white" : "bg-white/50"
-                }`}
-              />
-            ))}
-          </div>
         </div>
 
           <div className="w-full md:w-[360px] mt-12">
