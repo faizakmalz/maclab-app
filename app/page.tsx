@@ -14,6 +14,100 @@ const HERO_SLIDES = [
   },
 ];
 
+const MENU_ITEMS = [
+  {
+    id: 14,
+    name: "Garlic Bomba Lime",
+    description: "Garlic Butter \n Sauce x Lime",
+    price: "15.000",
+    image: "/menus/15.svg",
+    orderUrl:
+      "https://docs.google.com/forms/d/1M_71hWWL_pbyA5OoA5CS7-QUHN54raCPTC9o4jytlu4/edit",
+  },
+  {
+    id: 15,
+    name: "la felicita carbonara",
+    description: "Carbonara Sauce",
+    price: "20.000",
+    image: "/menus/16.svg",
+    orderUrl:
+      "https://docs.google.com/forms/d/1M_71hWWL_pbyA5OoA5CS7-QUHN54raCPTC9o4jytlu4/edit",
+  },
+  {
+    id: 16,
+    name: "Spicy Boom",
+    description: "Spicy Savory \n Flavour",
+    price: "15.000",
+    image: "/menus/14.svg",
+    orderUrl:
+      "https://docs.google.com/forms/d/1M_71hWWL_pbyA5OoA5CS7-QUHN54raCPTC9o4jytlu4/edit",
+  },
+  {
+    id: 17,
+    name: "Bolognese Luv",
+    description: "Bolognese Sauce",
+    price: "18.000",
+    image: "/menus/21.svg",
+    orderUrl:
+      "https://docs.google.com/forms/d/1M_71hWWL_pbyA5OoA5CS7-QUHN54raCPTC9o4jytlu4/edit",
+  },
+  {
+    id: 18,
+    name: "Tricky Cheese Bomb",
+    description: "Cheese Sauce",
+    price: "17.000",
+    image: "/menus/22.svg",
+    orderUrl:
+      "https://docs.google.com/forms/d/1M_71hWWL_pbyA5OoA5CS7-QUHN54raCPTC9o4jytlu4/edit",
+  },
+  // add as many as you want here...
+];
+
+function chunkMenus(items: any, perPage: number) {
+  const pages = [];
+  for (let i = 0; i < items.length; i += perPage) {
+    pages.push(items.slice(i, i + perPage));
+  }
+  return pages;
+}
+
+function MenuCard({ item }: any) {
+  return (
+    <div className="w-[30%] flex justify-center">
+      {/* This is the card wrapper */}
+      <div className="relative w-full rounded-xl shadow-lg pt-12 flex flex-col items-center">
+        {/* Floating image */}
+        <img
+          src={item.image}
+          alt={item.name}
+          className="absolute left-1/2 -translate-x-1/2 -top-5 w-[120px] h-[150px] object-cover z-80"
+        />
+
+        {/* Yellow block */}
+        <div className="bg-[#F6B70D] w-full h-22 rounded-t-xl" />
+
+        {/* White content block */}
+        <div className="w-full bg-white h-30 flex flex-col text-center px-2 pb-3 pt-3 -mt-8 rounded-xl justify-between">
+          <p className="text-[18px] text-black uppercase font-bebas-sans leading-4">
+            {item.name}
+          </p>
+
+          <p className="text-[12px] leading-3 text-gray-800 whitespace-pre-line mt-1">
+            {item.description}
+          </p>
+
+          <Link
+            href={item.orderUrl}
+            className="bg-[#A82731] hover:bg-red-900 text-white font-semibold text-[13px] rounded-lg inline-block mt-3 px-4 py-1 shadow"
+          >
+            {item.price}
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function getBackgroundImage(srcSet = '') {
   const imageSet = srcSet
     .split(', ')
@@ -32,7 +126,68 @@ export default function Home() {
   const backgroundImage = getBackgroundImage(srcSet)
   const style = { height: 'full', backgroundImage, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }
 
-   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [menuPage, setMenuPage] = useState(0);
+  const [isMenuDragging, setIsMenuDragging] = useState(false);
+  const [menuStartX, setMenuStartX] = useState(0);
+  const [menuDragX, setMenuDragX] = useState(0);
+  const [isHeroDragging, setIsHeroDragging] = useState(false);
+  const [heroStartX, setHeroStartX] = useState(0);
+  const [heroDragX, setHeroDragX] = useState(0);
+
+  const MENU_DRAG_THRESHOLD = 60; // px
+
+  const handleMenuDragStart = (clientX: number) => {
+    setIsMenuDragging(true);
+    setMenuStartX(clientX);
+    setMenuDragX(0);
+  };
+
+  const handleMenuDragMove = (clientX: number) => {
+    if (!isMenuDragging) return;
+    setMenuDragX(clientX - menuStartX);
+  };
+
+  const handleMenuDragEnd = () => {
+    if (!isMenuDragging) return;
+
+    if (menuDragX > MENU_DRAG_THRESHOLD) {
+      // dragged right -> previous page
+      prevMenu();
+    } else if (menuDragX < -MENU_DRAG_THRESHOLD) {
+      // dragged left -> next page
+      nextMenu();
+    }
+
+    setIsMenuDragging(false);
+    setMenuDragX(0);
+  };
+
+  const HERO_DRAG_THRESHOLD = 60;
+
+  const handleHeroDragStart = (clientX: number) => {
+    setIsHeroDragging(true);
+    setHeroStartX(clientX);
+    setHeroDragX(0);
+  };
+
+  const handleHeroDragMove = (clientX: number) => {
+    if (!isHeroDragging) return;
+    setHeroDragX(clientX - heroStartX);
+  };
+
+  const handleHeroDragEnd = () => {
+    if (!isHeroDragging) return;
+
+    if (heroDragX > HERO_DRAG_THRESHOLD) {
+      goPrev();
+    } else if (heroDragX < -HERO_DRAG_THRESHOLD) {
+      goNext();
+    }
+
+    setIsHeroDragging(false);
+    setHeroDragX(0);
+  };
 
   // auto-rotate hero
   useEffect(() => {
@@ -56,15 +211,40 @@ export default function Home() {
     setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
   };
 
+
+  const itemsPerPage = 3;
+  const menuPages = chunkMenus(MENU_ITEMS, itemsPerPage);
+  const totalPages = menuPages.length;
+
+  const nextMenu = () => {
+    setMenuPage((prev) => (prev + 1) % totalPages);
+  };
+
+  const prevMenu = () => {
+    setMenuPage((prev) => (prev - 1 + totalPages) % totalPages);
+  };
+
   return (
     <div className="flex min-h-screen items-center bg-white justify-center font-sans">
       <main className="flex min-h-screen w-full md:w-[360px] flex-col items-center justify-between bg-white sm:items-start">
         <section className="text-center">
-          <div className="relative w-full h-[420px] overflow-hidden">
+          <div className="relative w-full h-[420px]"
+          onMouseDown={(e) => handleHeroDragStart(e.clientX)}
+          onMouseMove={(e) => handleHeroDragMove(e.clientX)}
+          onMouseUp={handleHeroDragEnd}
+          onMouseLeave={handleHeroDragEnd}
+          onTouchStart={(e) => handleHeroDragStart(e.touches[0].clientX)}
+          onTouchMove={(e) => handleHeroDragMove(e.touches[0].clientX)}
+          onTouchEnd={handleHeroDragEnd}
+          >
           {/* Track */}
           <div
             className="flex h-full w-full transition-transform duration-500 ease-out"
-            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            style={{
+              transform: isHeroDragging
+                ? `translateX(calc(-${currentSlide * 100}% + ${heroDragX}px))`
+                : `translateX(-${currentSlide * 100}%)`,
+            }}
           >
             {HERO_SLIDES.map((slide, i) => (
               <div
@@ -99,7 +279,7 @@ export default function Home() {
           </button>
 
         </div>
-
+            
           <div className="w-full md:w-[360px] mt-12">
             <div className="flex px-10">
               <div className=" flex-1 gap-3 flex flex-col items-start justify-center">
@@ -113,72 +293,82 @@ export default function Home() {
               </div>
             </div>
             <div className="w-full flex items-center justify-center mt-6">
-              <Link href={'https://docs.google.com/forms/d/1M_71hWWL_pbyA5OoA5CS7-QUHN54raCPTC9o4jytlu4/edit'} className="bg-[#A82731] hover:bg-red-900 text-white cursor-pointer shadow-md rounded-lg px-8 py-2">Order Now</Link>
+              <Link href={'/about'} className="bg-[#A82731] hover:bg-red-900 text-white cursor-pointer shadow-md rounded-lg px-8 py-2">Learn More</Link>
             </div>
           </div>
 
           <div style={style} className="w-full md:w-[360px] mt-6 py-12 px-4">
             <h3 className="text-2xl mb-12 text-left pl-2 font-bold">MacLab Menu</h3>
-            <div className="flex gap-4 justify-center">
-              <div className="flex flex-col items-center w-[30%] rounded-xl shadow-lg overflow-hidden bg-white">
-                <img
-                    src="/menus/14.svg"
-                    alt="Garlic Bomba Lime"
-                    className="w-[120px] absolute h-[150px] object-cover -translate-y-10"
-                  />
-                <div className="bg-[#F6B70D] w-full h-28 flex justify-center">
-                </div>
-                <div className="w-full h-30 flex flex-col justify-between bg-white text-center py-2 px-2 rounded-t-2xl -mt-6">
-                  <p className="text-[18px] text-black uppercase font-bebas-sans leading-4 mt-2">
-                    Garlic Bomba Lime
-                  </p>
-                  <p className="text-[12px] leading-3 text-gray-800">Garlic Butter <br/> Sauce x Lime</p>
-                  <Link href={"https://docs.google.com/forms/d/1M_71hWWL_pbyA5OoA5CS7-QUHN54raCPTC9o4jytlu4/edit"} className="bg-[#A82731] hover:bg-red-900 text-white font-semibold text-[13px] rounded-md inline-block mt-3 px-4 py-1 shadow">
-                    15.000
-                  </Link>
-                </div>
+
+            {/* MENU SLIDER – 3 items per slide */}
+            <div
+              className="relative w-full overflow-x-hidden"
+              onMouseDown={(e) => handleMenuDragStart(e.clientX)}
+              onMouseMove={(e) => handleMenuDragMove(e.clientX)}
+              onMouseUp={handleMenuDragEnd}
+              onMouseLeave={handleMenuDragEnd}
+              onTouchStart={(e) => handleMenuDragStart(e.touches[0].clientX)}
+              onTouchMove={(e) => handleMenuDragMove(e.touches[0].clientX)}
+              onTouchEnd={handleMenuDragEnd}
+            >
+              <div
+                className={`flex ${isMenuDragging ? "" : "transition-transform duration-500 ease-out"}`}
+                style={{
+                  transform: isMenuDragging
+                    ? `translateX(calc(-${menuPage * 100}% + ${menuDragX}px))`
+                    : `translateX(-${menuPage * 100}%)`,
+                }}
+              >
+                {menuPages.map((page, pageIndex) => (
+                  <div
+                    key={pageIndex}
+                    className="w-full flex-shrink-0 flex gap-4 justify-center"
+                  >
+                    {page.map((item: any) => (
+                      <MenuCard key={item.id} item={item} />
+                    ))}
+                  </div>
+                ))}
               </div>
 
-              <div className="flex flex-col items-center w-[30%] rounded-xl shadow-lg overflow-hidden bg-white">
-                <img
-                    src="/menus/15.svg"
-                    alt="Garlic Bomba Lime"
-                    className="w-[120px] absolute h-[150px] object-cover -translate-y-10"
-                  />
-                <div className="bg-[#F6B70D] w-full h-28 flex justify-center">
-                </div>
-                <div className="w-full h-30 flex flex-col justify-between bg-white text-center py-2 px-2 rounded-t-2xl -mt-6">
-                  <p className="text-[18px] text-black uppercase font-bebas-sans leading-4 mt-2">
-                    la felicita carbonara
-                  </p>
-                  <p className="text-[12px] leading-3 text-gray-800">Carbonara Souce</p>
-                  <Link href={"https://docs.google.com/forms/d/1M_71hWWL_pbyA5OoA5CS7-QUHN54raCPTC9o4jytlu4/edit"} className="bg-[#A82731] hover:bg-red-900 text-white font-semibold text-[13px] rounded-md inline-block mt-3 px-4 py-1 shadow">
-                    20.000
-                  </Link>
-                </div>
-              </div>
-
-              <div className="flex flex-col items-center w-[30%] rounded-xl shadow-lg overflow-hidden bg-white">
-                <img
-                    src="/menus/16.svg"
-                    alt="Garlic Bomba Lime"
-                    className="w-[120px] absolute h-[150px] object-cover -translate-y-10"
-                  />
-                <div className="bg-[#F6B70D] w-full h-28 flex justify-center">
-                </div>
-                <div className="w-full h-30 flex flex-col justify-between bg-white text-center py-2 px-2 rounded-t-2xl -mt-6">
-                  <p className="text-[18px] text-black uppercase font-bebas-sans leading-4 mt-2">
-                    Spicy Boom
-                  </p>
-                  <p className="text-[12px] leading-3 text-gray-800">Spicy Savory<br/>Flavour</p>
-                  <Link href={"https://docs.google.com/forms/d/1M_71hWWL_pbyA5OoA5CS7-QUHN54raCPTC9o4jytlu4/edit"} className="bg-[#A82731] hover:bg-red-900 text-white font-semibold text-[13px] rounded-md inline-block mt-3 px-4 py-1 shadow">
-                    15.000
-                  </Link>
-                </div>
-              </div>
+              {/* Prev / Next buttons */}
+              <button
+                type="button"
+                onClick={prevMenu}
+                className="absolute left-1 top-1/2 -translate-y-1/2 rounded-full bg-black/30 text-white px-4 py-2 text-sm cursor-pointer"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                onClick={nextMenu}
+                className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-black/30 text-white px-4 py-2 text-sm cursor-pointer"
+              >
+                ›
+              </button>
             </div>
+
+            {/* Dots for pages */}
+            <div className="flex justify-center gap-2 mt-4">
+              {menuPages.map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => setMenuPage(index)}
+                  className={`h-2 w-2 rounded-full ${
+                    index === menuPage ? "bg-white" : "bg-white/50"
+                  }`}
+                />
+              ))}
+            </div>
+
             <div className="w-full flex items-center justify-center mt-6">
-              <Link href={'/menu'} className="bg-[#A82731] text-white shadow-md cursor-pointer hover:bg-red-900 rounded-lg px-8 py-2">See All</Link>
+              <Link
+                href={"/menu"}
+                className="bg-[#A82731] text-white shadow-md cursor-pointer hover:bg-red-900 rounded-lg px-8 py-2"
+              >
+                See All
+              </Link>
             </div>
           </div>
         </section>
