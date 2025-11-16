@@ -62,7 +62,7 @@ export default function Menu() {
 
       <div style={style} className="mb-6 py-6 shadow-lg">
         <h3 className="text-3xl mb-20 text-left pl-8 font-bold">MacLab Bundle</h3>
-        <div className="grid grid-cols-3 gap-3 mb-4 px-[4%]">
+        <div className="grid grid-cols-3 gap-3 mb-4 px-[5%]">
             {[
             { name: "Mac Lab basic", price: "22.000", description: "1 Porsi MacLab (All Variants) + 1 Topping Pilihan + Es Teh.", img: "/menus/17.svg" },
             { name: "Mac Lab couple", price: "30.000", description: "2 Porsi MacLab (All Variants) + 1 Topping Pilihan + Es Teh", img: "/menus/18.svg" },

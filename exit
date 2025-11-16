@@ -1,0 +1,65 @@
+[33mcommit 82917c8eb5ddfc3b511daea48ab600b05003b85e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Faza <fakmalzaidaan@gmail.com>
+Date:   Fri Nov 14 17:41:21 2025 +0700
+
+    adj: header n carousel
+
+[33mcommit 4a3fd5bae4c59a7c85511dd0dbd64271fbc58858[m
+Author: Faza <fakmalzaidaan@gmail.com>
+Date:   Fri Nov 14 11:31:45 2025 +0700
+
+    adj: hero carousel
+
+[33mcommit 1c7423d02cedbff1f549f6e03032979d48116210[m
+Author: Faza <fakmalzaidaan@gmail.com>
+Date:   Thu Nov 13 14:47:02 2025 +0700
+
+    adj: urls and views
+
+[33mcommit 98a86449df71aebcf624b80bbb965ce7382dbca1[m
+Author: Faza <fakmalzaidaan@gmail.com>
+Date:   Wed Nov 5 01:56:36 2025 +0700
+
+    adj: links
+
+[33mcommit 68f4b7354bc13ae1e879a8ba7145faed9ffc55e2[m
+Author: Faza <fakmalzaidaan@gmail.com>
+Date:   Tue Nov 4 10:23:09 2025 +0700
+
+    add order button
+
+[33mcommit dd2e23c39d6e197fb5ebcf0aca6051853c28c7f2[m
+Author: Faza <fakmalzaidaan@gmail.com>
+Date:   Mon Nov 3 22:49:39 2025 +0700
+
+    adj: responsive view percentage
+
+[33mcommit e75bb4dea7c22ca57950223214338bfd804b2d5e[m
+Author: Faza <fakmalzaidaan@gmail.com>
+Date:   Mon Nov 3 19:15:51 2025 +0700
+
+    adj: header width
+
+[33mcommit 4cebacee1711f90f144ab5e66979f237fb4d1295[m
+Author: Faza <fakmalzaidaan@gmail.com>
+Date:   Mon Nov 3 19:06:30 2025 +0700
+
+    adj: layout overflow
+
+[33mcommit 2e1a5336cd77262fcfc7db0677a98f9438134848[m
+Author: Faza <fakmalzaidaan@gmail.com>
+Date:   Mon Nov 3 15:32:04 2025 +0700
+
+    adj: responsive on mobile 360px
+
+[33mcommit d301669a4eccd42f0f7b5068dec5021182c6952d[m
+Author: Faza <fakmalzaidaan@gmail.com>
+Date:   Sat Nov 1 07:34:49 2025 +0700
+
+    initial
+
+[33mcommit 9e7b531bfa9e3c17f1d8d7ab8cb04978c6de6801[m
+Author: Faza <fakmalzaidaan@gmail.com>
+Date:   Wed Oct 29 19:14:39 2025 +0700
+
+    Initial commit from Create Next App

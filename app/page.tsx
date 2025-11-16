@@ -74,20 +74,21 @@ function chunkMenus(items: any, perPage: number) {
 function MenuCard({ item }: any) {
   return (
     <div className="w-[30%] flex justify-center">
-      {/* This is the card wrapper */}
-      <div className="relative w-full rounded-xl shadow-lg pt-12 flex flex-col items-center">
+      {/* This is the card wrapper, no shadow here */}
+      <div className="relative w-full flex flex-col items-center">
+
         {/* Floating image */}
         <img
           src={item.image}
           alt={item.name}
-          className="absolute left-1/2 -translate-x-1/2 -top-5 w-[120px] h-[150px] object-cover z-80"
+          className="absolute left-1/2 -translate-x-1/2 -top-10 w-[120px] h-[150px] object-cover z-20"
         />
 
         {/* Yellow block */}
-        <div className="bg-[#F6B70D] w-full h-22 rounded-t-xl" />
+        <div className="bg-[#F6B70D] w-full h-28 rounded-t-xl" />
 
-        {/* White content block */}
-        <div className="w-full bg-white h-30 flex flex-col text-center px-2 pb-3 pt-3 -mt-8 rounded-xl justify-between">
+        {/* This container only holds the white content and gets the shadow */}
+        <div className="w-full bg-white h-30 justify-between rounded-xl shadow-lg flex flex-col text-center px-2 pt-3 pb-3 -mt-6">
           <p className="text-[18px] text-black uppercase font-bebas-sans leading-4">
             {item.name}
           </p>
@@ -107,6 +108,7 @@ function MenuCard({ item }: any) {
     </div>
   );
 }
+
 
 function getBackgroundImage(srcSet = '') {
   const imageSet = srcSet
@@ -226,9 +228,9 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen items-center bg-white justify-center font-sans">
-      <main className="flex min-h-screen w-full md:w-[360px] flex-col items-center justify-between bg-white sm:items-start">
+      <main className="flex min-h-screen max-w-[360px] md:w-[360px] flex-col items-center justify-between bg-white sm:items-start">
         <section className="text-center">
-          <div className="relative w-full h-[420px]"
+          <div className="relative w-full max-w-[360px] h-[420px]"
           onMouseDown={(e) => handleHeroDragStart(e.clientX)}
           onMouseMove={(e) => handleHeroDragMove(e.clientX)}
           onMouseUp={handleHeroDragEnd}
@@ -239,7 +241,7 @@ export default function Home() {
           >
           {/* Track */}
           <div
-            className="flex h-full w-full transition-transform duration-500 ease-out"
+            className="flex h-full w-full max-w-[360px] transition-transform duration-500 ease-out"
             style={{
               transform: isHeroDragging
                 ? `translateX(calc(-${currentSlide * 100}% + ${heroDragX}px))`
@@ -249,7 +251,7 @@ export default function Home() {
             {HERO_SLIDES.map((slide, i) => (
               <div
                 key={i}
-                className="relative h-full w-full flex-shrink-0"
+                className="relative h-full w-full max-w-[360px] flex-shrink-0"
               >
                 <Image
                   src={slide.src}
@@ -280,7 +282,7 @@ export default function Home() {
 
         </div>
             
-          <div className="w-full md:w-[360px] mt-12">
+          <div className="max-w-[360px] md:w-[360px] mt-12">
             <div className="flex px-10">
               <div className=" flex-1 gap-3 flex flex-col items-start justify-center">
                 <h3 className="text-2xl text-left font-bold">Meet MacLab</h3>
@@ -297,7 +299,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div style={style} className="w-full md:w-[360px] mt-6 py-12 px-4">
+          <div style={style} className="max-w-[360px] md:w-[360px] mt-6 py-12 px-4">
             <h3 className="text-2xl mb-12 text-left pl-2 font-bold">MacLab Menu</h3>
 
             {/* MENU SLIDER – 3 items per slide */}
@@ -322,7 +324,7 @@ export default function Home() {
                 {menuPages.map((page, pageIndex) => (
                   <div
                     key={pageIndex}
-                    className="w-full flex-shrink-0 flex gap-4 justify-center"
+                    className="w-full py-6 max-w-[360px] flex-shrink-0 flex gap-4 justify-center"
                   >
                     {page.map((item: any) => (
                       <MenuCard key={item.id} item={item} />
