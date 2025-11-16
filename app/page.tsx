@@ -124,7 +124,7 @@ function getBackgroundImage(srcSet = '') {
 export default function Home() {
   const {
     props: { srcSet },
-  } = getImageProps({ alt: '', width: 400, height: 400, src: '/webdes4.png' })
+  } = getImageProps({ alt: '', width: 500, height: 500, src: '/webdes4.png' })
   const backgroundImage = getBackgroundImage(srcSet)
   const style = { height: 'full', backgroundImage, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }
 
@@ -228,9 +228,9 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen items-center bg-white justify-center font-sans">
-      <main className="flex min-h-screen max-w-[360px] md:w-[360px] flex-col items-center justify-between bg-white sm:items-start">
+      <main className="flex min-h-screen w-full md:w-[360px] flex-col items-center justify-between bg-white sm:items-start">
         <section className="text-center">
-          <div className="relative w-full max-w-[360px] h-[420px]"
+          <div className="relative w-full md:w-[360px] h-[480px]"
           onMouseDown={(e) => handleHeroDragStart(e.clientX)}
           onMouseMove={(e) => handleHeroDragMove(e.clientX)}
           onMouseUp={handleHeroDragEnd}
@@ -241,7 +241,7 @@ export default function Home() {
           >
           {/* Track */}
           <div
-            className="flex h-full w-full max-w-[360px] transition-transform duration-500 ease-out"
+            className="flex h-full w-full md:w-[360px] transition-transform duration-500 ease-out"
             style={{
               transform: isHeroDragging
                 ? `translateX(calc(-${currentSlide * 100}% + ${heroDragX}px))`
@@ -251,7 +251,7 @@ export default function Home() {
             {HERO_SLIDES.map((slide, i) => (
               <div
                 key={i}
-                className="relative h-full w-full max-w-[360px] flex-shrink-0"
+                className="relative h-full w-full md:w-[360px] flex-shrink-0"
               >
                 <Image
                   src={slide.src}
@@ -259,6 +259,8 @@ export default function Home() {
                   fill
                   priority
                   className="object-cover"
+                  // width={300}
+                  // height={400}
                   sizes="(max-width: 768px) 100vw, 360px"
                 />
               </div>
@@ -282,7 +284,7 @@ export default function Home() {
 
         </div>
             
-          <div className="max-w-[360px] md:w-[360px] mt-12">
+          <div className="w-full md:w-[360px] mt-12">
             <div className="flex px-10">
               <div className=" flex-1 gap-3 flex flex-col items-start justify-center">
                 <h3 className="text-2xl text-left font-bold">Meet MacLab</h3>
@@ -299,12 +301,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div style={style} className="max-w-[360px] md:w-[360px] mt-6 py-12 px-4">
-            <h3 className="text-2xl mb-12 text-left pl-2 font-bold">MacLab Menu</h3>
+          <div style={style} className="w-full flex flex-col items-center md:w-[360px] mt-6 py-8">
+            <h3 className="text-2xl mb-6 text-left -translate-x-24 font-bold">MacLab Menu</h3>
 
             {/* MENU SLIDER – 3 items per slide */}
             <div
-              className="relative w-full overflow-x-hidden"
+              className="relative w-full max-w-[360px] md:w-[360px] overflow-x-hidden"
               onMouseDown={(e) => handleMenuDragStart(e.clientX)}
               onMouseMove={(e) => handleMenuDragMove(e.clientX)}
               onMouseUp={handleMenuDragEnd}
@@ -324,7 +326,7 @@ export default function Home() {
                 {menuPages.map((page, pageIndex) => (
                   <div
                     key={pageIndex}
-                    className="w-full py-6 max-w-[360px] flex-shrink-0 flex gap-4 justify-center"
+                    className="w-full py-6 flex-shrink-0 flex gap-4 justify-center"
                   >
                     {page.map((item: any) => (
                       <MenuCard key={item.id} item={item} />
@@ -364,7 +366,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="w-full flex items-center justify-center mt-6">
+            <div className="w-full flex items-center justify-center">
               <Link
                 href={"/menu"}
                 className="bg-[#A82731] text-white shadow-md cursor-pointer hover:bg-red-900 rounded-lg px-8 py-2"
