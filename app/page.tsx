@@ -352,21 +352,7 @@ export default function Home() {
               </button>
             </div>
 
-            {/* Dots for pages */}
-            <div className="flex justify-center gap-2 mt-4">
-              {menuPages.map((_, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  onClick={() => setMenuPage(index)}
-                  className={`h-2 w-2 rounded-full ${
-                    index === menuPage ? "bg-white" : "bg-white/50"
-                  }`}
-                />
-              ))}
-            </div>
-
-            <div className="w-full flex items-center justify-center">
+            <div className="w-full flex items-center justify-center mt-2">
               <Link
                 href={"/menu"}
                 className="bg-[#A82731] text-white shadow-md cursor-pointer hover:bg-red-900 rounded-lg px-8 py-2"
